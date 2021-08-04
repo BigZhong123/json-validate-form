@@ -1,6 +1,8 @@
 import { mount } from '@vue/test-utils';
 
-import JsonSchemaFrom, { StringField, NumberField } from '../../lib';
+import { StringField, NumberField } from '../../lib';
+
+import TestComponent from './utils/TestComponent';
 
 describe('ObjectField', () => {
   let schema: any;
@@ -19,7 +21,7 @@ describe('ObjectField', () => {
   });
 
   it('ObjectField should render correct NumberField and stringField', async () => {
-    const wrapper = mount(JsonSchemaFrom, {
+    const wrapper = mount(TestComponent, {
       props: {
         schema,
         value: {},
@@ -37,7 +39,7 @@ describe('ObjectField', () => {
   it('ObjectField should change correct when subField trigger onChange', async () => {
     let value: any = {};
 
-    const wrapper = mount(JsonSchemaFrom, {
+    const wrapper = mount(TestComponent, {
       props: {
         schema,
         value,
@@ -62,7 +64,7 @@ describe('ObjectField', () => {
       name: '123',
     };
 
-    const wrapper = mount(JsonSchemaFrom, {
+    const wrapper = mount(TestComponent, {
       props: {
         schema,
         value,
